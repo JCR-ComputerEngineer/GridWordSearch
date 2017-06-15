@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.util.Stack;
 
 public class Main extends Application {
+    private Stack stack;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -21,7 +22,7 @@ public class Main extends Application {
         GridPane gridPane = new GridPane();
         borderPane.setCenter(gridPane);
         GridHandler gHandler = new GridHandler(gridPane, 3,3); //Need to ask the user for the matrix size
-        PathFinder pathFinder = new PathFinder(gHandler.getRowLength(), gHandler.getColumnLength());
+        PathFinder pathFinder = new PathFinder(gHandler.getRowLength(), gHandler.getColumnLength(), stack);
     }
 
 

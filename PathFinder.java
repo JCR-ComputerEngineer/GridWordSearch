@@ -2,7 +2,7 @@
  * @author jrenta
  * @version 1.0
  *
- * This program takes in a number of rows and columns, ideally from a matrix.
+ * This program takes in a number of rows and columns, ideally from a matrix; and returns a stack.
  * It produces a stack filled with all of the Matrix's points (x,y) or (row,col) in this case.
  * The stack is filled starting from the top left coordinate.
  * It then moves across the 1st row and traverses the matrix downwards in a snake-like path.
@@ -14,19 +14,17 @@ import java.util.Stack;
 
 
 public class PathFinder{
-    public Stack pathStack;
 
     //Constructor
-    public PathFinder(int rows, int cols){
-        pathStack = new Stack();
-        setMainPathStack(rows,cols,pathStack);
+    public PathFinder(int rows, int cols, Stack stack){
+        stack = setMainPathStack(rows,cols,stack);
     }
 
     /* This method traverses through a grid in a snake-like path
      * Each element in the grid is collected & pushed into a stack
      * The bottom of the stack will contain the top left node of the grid (Row 1, Col 1)
      */
-    private void setMainPathStack(int numRows, int numCols, Stack mainPathStack){
+    private Stack setMainPathStack(int numRows, int numCols, Stack mainPathStack){
         int direction = 1; //The variable direction is "-1" or "+1"
         boolean endOfColFlag = false;
         boolean startOfColFlag = true;
@@ -88,5 +86,7 @@ public class PathFinder{
                     startOfColFlag = false;
                 }
             }
+        return mainPathStack;
     }
+
 }
