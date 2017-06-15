@@ -1,20 +1,25 @@
+/**
+ * @author jrenta
+ * @version 1.0
+ *
+ * This program takes in a number of rows and columns, ideally from a matrix.
+ * It produces a stack filled with all of the Matrix's points (x,y) or (row,col) in this case.
+ * The stack is filled starting from the top left coordinate.
+ * It then moves across the 1st row and traverses the matrix downwards in a snake-like path.
+ */
 package sample;
 
 import javafx.geometry.Point2D;
 import java.util.Stack;
 
 
-/**
- * @author jrenta
- * @version 1.0
- */
 public class PathFinder{
     public Stack pathStack;
 
-    //Constructor get the gridHandler
-    public PathFinder(GridHandler gH){
+    //Constructor
+    public PathFinder(int rows, int cols){
         pathStack = new Stack();
-        setMainPathStack(gH.getRowLength(),gH.getColumnLength(),pathStack);
+        setMainPathStack(rows,cols,pathStack);
     }
 
     /* This method traverses through a grid in a snake-like path

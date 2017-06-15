@@ -20,9 +20,8 @@ public class Main extends Application {
         primaryStage.show();
         GridPane gridPane = new GridPane();
         borderPane.setCenter(gridPane);
-        //gridHandler takes the size of the matrix (row, col)
-        GridHandler gHandler = new GridHandler(gridPane, 3,3);
-        PathFinder pathFinder = new PathFinder(gHandler);
+        GridHandler gHandler = new GridHandler(gridPane, 3,3); //Need to ask the user for the matrix size
+        PathFinder pathFinder = new PathFinder(gHandler.getRowLength(), gHandler.getColumnLength());
     }
 
 
